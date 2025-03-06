@@ -1,53 +1,52 @@
 # Sports League Scheduling Models
 
-This repository contains several Jupyter notebooks implementing different Integer Programming (IP) formulations and heuristics for Single Round Robin (SRR) league scheduling. The files include the source code for the integer programming formulations developed as part of the thesis "Optimizing Sports League Scheduling: A Comparative Study of Integer Programming Approaches."
+This repository contains several Jupyter notebooks implementing different Integer Programming (IP) formulations and heuristics for Single Round Robin (SRR) league scheduling. The source code was developed as part of the thesis *"Optimizing Sports League Scheduling: A Comparative Study of Integer Programming Approaches."*
 
 ## File Descriptions
 
 1. **DevelopedHeuristic_Stages_1and2.ipynb**  
-   - First part of the proposed iterative heuristic.  
-   - Generates an initial feasible set of home–away patterns in a sustainable manner (Stage 1) and confirms feasibility (Stage 2).  
-   - The resulting feasible patterns are passed on to the next notebook.
+   - Implements the first stages of our proposed iterative heuristic.  
+   - Generates an initial feasible set of home–away patterns.  
+   - **Note:** Evaluated on an instance with 20 teams to illustrate efficiency versus other pattern-based methods.
 
 2. **DevelopedHeuristic_Stages_3and4.ipynb**  
-   - Continues from the output of the Stages 1 and 2 notebook.  
-   - Incorporates advanced constraints (e.g., carry-over effect) and finalizes the schedule.  
-   - Demonstrates how the reduced solution space approach can outperform classical methods as league size grows.
+   - Continues from Stages 1 and 2.  
+   - Incorporates advanced constraints (e.g., carry-over effect) and finalizes the schedule.
 
 3. **Direct_Team_Pairing.ipynb**  
-   - Implements an intuitive IP model that directly pairs teams in each round.  
-   - Typically offers polynomial complexity and achieves optimal solutions with moderate computational effort.
+   - Implements a direct IP model that pairs teams each round.  
+   - **Note:** Tested on a 10-team instance.
 
 4. **Pattern-Based_Classical_Decomposition_Phase1.ipynb**  
-   - Phase 1 of the classical decomposition approach: produces a feasible schedule of pattern pairings.  
-   - The generated schedule (patterns vs. patterns) feeds into Phase 2 for final team assignment.
+   - Phase 1 of the classical decomposition approach, generating a feasible schedule of pattern pairings.  
+   - **Note:** Run on a 10-team instance.
 
 5. **Pattern-Based_Classical_Decomposition_Phase2.ipynb**  
-   - Phase 2 of the classical decomposition approach: assigns teams to the pattern schedule from Phase 1.  
-   - Completes the two-step method widely referenced in scheduling literature.
+   - Phase 2 of the classical decomposition approach, assigning teams to patterns.  
+   - **Note:** Run on a 10-team instance.
 
 6. **Pattern-Based_Integrated.ipynb**  
-   - A single, integrated pattern-based model that includes all constraints (home–away sequences, fairness, COE) in one formulation.  
-   - Comprehensive but potentially expensive for larger leagues due to exponential growth in variables and constraints.
+   - A fully integrated pattern-based model that includes all constraints in a single formulation.  
+   - **Note:** Due to its exponential complexity, this model is demonstrated on a 6-team instance.
 
 ## How to Use
 
-- **DevelopedHeuristic_Stages_1and2** → **DevelopedHeuristic_Stages_3and4**:  
-  Run the first notebook to generate and validate feasible patterns, then pass its output to the second notebook for final scheduling under carry-over constraints.
+- **DevelopedHeuristic_Stages_1and2** → **DevelopedHeuristic_Stages_3and4:**  
+  Run the first notebook to generate and validate feasible patterns, then feed its output into the second notebook to finalize the schedule under advanced constraints.
 
-- **Pattern-Based_Classical_Decomposition_Phase1** → **Pattern-Based_Classical_Decomposition_Phase2**:  
-  Use Phase 1 to build a pattern pairing schedule. Feed that schedule into Phase 2 to complete the assignment of teams to patterns.
+- **Pattern-Based_Classical_Decomposition_Phase1** → **Phase2:**  
+  Use Phase 1 to build a schedule of pattern pairings, then run Phase 2 to assign teams to these patterns.
 
-- **Direct_Team_Pairing** and **Pattern-Based_Integrated**:  
-  These are standalone notebooks that illustrate alternative IP approaches. Run them independently to compare their performance against the decomposition or heuristic methods.
+- **Direct_Team_Pairing** and **Pattern-Based_Integrated:**  
+  These notebooks are standalone and can be run independently for performance comparisons.
 
 ## Requirements
 
 - [Python 3.x](https://www.python.org/)  
 - [Jupyter Notebook](https://jupyter.org/)  
 - [Gurobi](https://www.gurobi.com/) (or another solver compatible with `gurobipy`)  
-- Any additional libraries (e.g., `numpy`) may be specified at the top of each notebook.
+- Additional libraries as specified in each notebook.
 
 ## License and Citation
 
-Feel free to adapt or extend these notebooks for research or practical scheduling. If you publish results using this code, please cite the corresponding paper or thesis to acknowledge the original work.
+Feel free to adapt or extend these notebooks for research or practical scheduling applications. If you use this code, please cite the corresponding paper or thesis to acknowledge the original work.

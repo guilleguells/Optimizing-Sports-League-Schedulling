@@ -1,6 +1,7 @@
 # Sports League Scheduling Models
 
-This repository contains several Jupyter notebooks implementing different Integer Programming (IP) formulations and heuristics for Single Round Robin (SRR) league scheduling.
+This repository contains several Jupyter notebooks implementing different Integer Programming (IP) formulations and heuristics for Single Round Robin (SRR) league scheduling. The files include the source code for the integer programming formulations developed as part of the thesis "Optimizing Sports League Scheduling: A Comparative Study of Integer Programming Approaches."
+
 ## File Descriptions
 
 1. **DevelopedHeuristic_Stages_1and2.ipynb**  
